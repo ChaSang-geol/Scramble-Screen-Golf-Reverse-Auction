@@ -13,6 +13,8 @@ import scramble.domain.PaymentCanceled;
 @Data
 public class Payment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long paymentId;
 
     private Long gameReservationId;

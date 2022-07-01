@@ -14,7 +14,7 @@ import scramble.domain.MemberWithdrawed;
 @Table(name = "Member_table")
 @Data
 public class Member {
-
+    @Id
     private String memberId;
 
     private String password;
