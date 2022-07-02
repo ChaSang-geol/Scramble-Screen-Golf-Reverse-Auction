@@ -16,7 +16,7 @@ import scramble.domain.SettlementProcessingSent;
 public class Notice {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long notiId;
 
     private String receiverPhoneNum;
