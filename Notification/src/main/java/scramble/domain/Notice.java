@@ -15,6 +15,8 @@ import scramble.domain.SettlementProcessingSent;
 @Data
 public class Notice {
 
+    @Id
+    @GeneratedValue
     private Long notiId;
 
     private String receiverPhoneNum;
@@ -25,7 +27,9 @@ public class Notice {
 
     private Date sendDate;
 
-    private String notiFlag;
+    //private String notiFlag;
+    @Embedded
+    MessageFlag notiFlag;
 
     private Long gameReservationId;
 
