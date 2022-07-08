@@ -3,6 +3,8 @@ package scramble.domain;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+
+import lombok.Builder;
 import lombok.Data;
 import scramble.PaymentApplication;
 import scramble.domain.Paid;
@@ -16,7 +18,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long paymentId;
-    
+
     private Long gameReservationId;
 
     //private String paymentMethod;
@@ -27,7 +29,7 @@ public class Payment {
 
     //private String paymentStatus;
     @Embedded
-    PaymentStatus paymentStatus = PaymentStatus.PaymentRequest;
+    PaymentStatus paymentStatus ;//= PaymentStatus.PaymentRequest;
 
     private String paymentAccount;
     private String memberId;
@@ -53,8 +55,8 @@ public class Payment {
 
     @PostUpdate
     public void onPostUpdate(){
-        
-        
+
+
         if (PaymentStatus.PaymentCancel.equals(this.getPaymentStatus())) {
             // 결재상태가 취소일 때
             PaymentCanceled paymentCanceled = new PaymentCanceled(this);
@@ -69,8 +71,8 @@ public class Payment {
             paymentCanceled.setMemberPhoneNum(this.getMemberPhoneNum());
             paymentCanceled.publishAfterCommit();
         }
-        
-        
+
+
     }
 
     public static PaymentRepository repository() {
@@ -83,7 +85,7 @@ public class Payment {
     public static void requestPayment(PaymentRequested paymentRequested) {
         /** Example 1:  new item */
         Payment payment = new Payment();
-        
+
         // 결제 요청 받은 데이터를 세팅
         payment.gameReservationId=paymentRequested.getGameReservationId();
         //payment.setPaymentId(paymentId);
@@ -95,16 +97,16 @@ public class Payment {
         payment.memberId= paymentRequested.getMemberId();
         payment.memberName=paymentRequested.getMemberName();
         payment.memberPhoneNum=paymentRequested.getMemberPhoneNum();
-        
+
         // Payment에 저장하기
         repository().save(payment);
 
         // 외부 결제시스템에 데이터 전달
 
         /** Example 2:  finding and process
-        
+
         repository().findById(paymentRequested.get???()).ifPresent(payment->{
-            
+
             payment // do something
             repository().save(payment);
 
@@ -118,7 +120,7 @@ public class Payment {
         PaymentCancellationRequested paymentCancellationRequested
     ) {
         // 결제 취소가 요청됨
-        /** Example 1:  new item 
+        /** Example 1:  new item
         Payment payment = new Payment();
         repository().save(payment);
 
@@ -127,13 +129,13 @@ public class Payment {
         /** Example 2:  finding and process
         */
         repository().findById(paymentCancellationRequested.getGameReservationId()).ifPresent(payment->{
-            
+
             payment.paymentStatus=PaymentStatus.PaymentCancel; // do something
             repository().save(payment);
 
 
          });
-        
+
 
     }
 
