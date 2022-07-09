@@ -9,10 +9,10 @@ import scramble.infra.AbstractEvent;
 public class MemberJoined extends AbstractEvent {
 
     private String memberId;
-    private String password;
     private String memberName;
     private String phoneNumber;
     private String status;
+    private String role;
 
     public MemberJoined(Member aggregate) {
         super(aggregate);

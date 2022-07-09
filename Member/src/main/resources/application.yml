@@ -37,6 +37,14 @@ logging:
     org.hibernate.type: trace
     org.springframework.cloud: debug
 
+security:
+  allowedOrigins: http://localhost:3000,http://localhost:3001,http://localhost:8080,http://localhost:8081
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
 
 server:
   port: 8082
