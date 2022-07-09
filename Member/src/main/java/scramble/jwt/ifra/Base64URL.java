@@ -1,4 +1,4 @@
-package scramble.infra.jwt;
+package scramble.jwt.ifra;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

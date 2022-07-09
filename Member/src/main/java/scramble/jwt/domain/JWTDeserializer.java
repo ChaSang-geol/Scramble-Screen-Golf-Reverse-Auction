@@ -1,4 +1,4 @@
-package scramble.domain.jwt;
+package scramble.jwt.domain;
 
 import org.springframework.context.annotation.Bean;
 

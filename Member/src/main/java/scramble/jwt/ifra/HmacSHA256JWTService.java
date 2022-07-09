@@ -1,17 +1,18 @@
-package scramble.infra.jwt;
+package scramble.jwt.ifra;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import scramble.domain.jwt.JWTDeserializer;
-import scramble.domain.jwt.JWTPayload;
-import scramble.domain.jwt.JWTSerializer;
+
 import scramble.domain.Member;
+import scramble.jwt.domain.JWTDeserializer;
+import scramble.jwt.domain.JWTPayload;
+import scramble.jwt.domain.JWTSerializer;
 
 import java.util.regex.Pattern;
 
-import static scramble.infra.jwt.Base64URL.*;
 import static java.lang.String.format;
 import static java.time.Instant.now;
 import static java.util.regex.Pattern.compile;
+import static scramble.jwt.ifra.Base64URL.*;
 
 class HmacSHA256JWTService implements JWTSerializer, JWTDeserializer {
 

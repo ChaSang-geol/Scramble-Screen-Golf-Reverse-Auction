@@ -1,4 +1,4 @@
-package scramble.infra.jwt;
+package scramble.jwt.ifra;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;

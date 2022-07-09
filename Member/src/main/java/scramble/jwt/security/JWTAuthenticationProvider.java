@@ -1,21 +1,22 @@
-package scramble.config.security;
+package scramble.jwt.security;
 
-import scramble.domain.jwt.JWTDeserializer;
-import scramble.domain.jwt.JWTPayload;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import scramble.jwt.domain.JWTDeserializer;
+import scramble.jwt.domain.JWTPayload;
+
 import static java.util.Collections.singleton;
 import static java.util.Optional.of;
 
-class JWTAuthenticationProvider implements AuthenticationProvider {
+public class JWTAuthenticationProvider implements AuthenticationProvider {
 
     private final JWTDeserializer jwtDeserializer;
 
-    JWTAuthenticationProvider(JWTDeserializer jwtDeserializer) {
+    public JWTAuthenticationProvider(JWTDeserializer jwtDeserializer) {
         this.jwtDeserializer = jwtDeserializer;
     }
 

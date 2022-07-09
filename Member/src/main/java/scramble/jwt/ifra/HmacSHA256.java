@@ -1,4 +1,4 @@
-package scramble.infra.jwt;
+package scramble.jwt.ifra;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

@@ -48,7 +48,7 @@ public class MemberService implements MemberFindService{
   }
 
   @Transactional
-  public Member updateMember(long id, Member request) {
+  public Member updateMember(Long id, RequestUpdateMember request) {
       final Member user = memberRepository.findById(id).orElseThrow(NoSuchElementException::new);
 
         if (Optional.ofNullable(request.getMemberId()).isPresent()){

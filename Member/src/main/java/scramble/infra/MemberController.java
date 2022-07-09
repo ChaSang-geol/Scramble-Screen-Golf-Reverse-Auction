@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 
+import org.apache.commons.logging.Log;
+import org.apache.kafka.common.protocol.Message;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +27,7 @@ public class MemberController {
     // keep
 
     // 회원로그인
-    @PostMapping("/members/login")
+    @PostMapping("/login")
     public MemberLoggedIn login(@Valid @RequestBody String memberId, String password) {
         // return of(memberService.login(memberId, password)
         //         .map(member -> fromUserAndToken(member, jwtSerializer.jwtFromUser(member))));
@@ -42,14 +45,23 @@ public class MemberController {
 
 
 
-    
+
     // 회원등록
     public void joinMember(){
 
     }
 
     // 회원정보수정
-    public void updateMember(){
+    @PutMapping("/members/{id}")
+    public Member updateMember(@Valid @RequestBody RequestUpdateMember member, Long id ){
+        Member themMember = new Member() ;
+        try {
+            themMember= memberService.updateMember(id, member);
+        } catch (Exception e) {
+            //TODO: handle exception
+
+        }
+        return themMember;
 
     }
 

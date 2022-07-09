@@ -1,4 +1,4 @@
-package scramble.domain.jwt;
+package scramble.jwt.domain;
 
 import java.io.Serializable;
 

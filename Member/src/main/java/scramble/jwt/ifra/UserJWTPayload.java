@@ -1,7 +1,7 @@
-package scramble.infra.jwt;
+package scramble.jwt.ifra;
 
-import scramble.domain.jwt.JWTPayload;
 import scramble.domain.Member;
+import scramble.jwt.domain.JWTPayload;
 
 import static java.lang.String.format;
 import static java.lang.String.valueOf;
