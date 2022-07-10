@@ -15,18 +15,18 @@
 ● Windows 
 - Zookeeper 실행 : 
   Kafka_설치_경로로 이동
-```  ./bin/windows/zookeeper-server-start.bat ./config/zookeeper.properties
+```./bin/windows/zookeeper-server-start.bat ./config/zookeeper.properties
 - Kafka 실행 : 
   Kafka_설치_경로로 이동
-  ./bin/windows/kafka-server-start.bat ./config/server.properties
+```./bin/windows/kafka-server-start.bat ./config/server.properties
 
 
 - [Kafka Event 컨슈밍하기 (별도 터미널)]
-  cd kafka_2.13-3.1.0/
-  ./bin/windows/kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --topic scramble
+```cd kafka_2.13-3.1.0/
+./bin/windows/kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --topic scramble
 
 
 - [Kafa stop]
-  ./bin/windows/kafka-server-stop.bat
+```./bin/windows/kafka-server-stop.bat
 - [Zookeeper Stop]
-  ./bin/windows/zookeeper-server-stop.bat
+```./bin/windows/zookeeper-server-stop.bat
