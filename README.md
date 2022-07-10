@@ -15,7 +15,7 @@
 ● Windows 
 - Zookeeper 실행 : 
   Kafka_설치_경로로 이동
-  ./bin/windows/zookeeper-server-start.bat ./config/zookeeper.properties
+```  ./bin/windows/zookeeper-server-start.bat ./config/zookeeper.properties
 - Kafka 실행 : 
   Kafka_설치_경로로 이동
   ./bin/windows/kafka-server-start.bat ./config/server.properties
