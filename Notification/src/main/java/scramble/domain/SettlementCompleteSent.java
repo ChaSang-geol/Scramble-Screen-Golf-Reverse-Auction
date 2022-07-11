@@ -2,10 +2,11 @@ package scramble.domain;
 
 import java.util.Date;
 import lombok.Data;
+import scramble.domain.*;
 import scramble.infra.AbstractEvent;
 
 @Data
-public class SettlementProcessingSent extends AbstractEvent {
+public class SettlementCompleteSent extends AbstractEvent {
 
     private Long notiId;
     private String receiverPhoneNum;
@@ -18,11 +19,11 @@ public class SettlementProcessingSent extends AbstractEvent {
     private Long settleid;
     private Long paymentId;
 
-    public SettlementProcessingSent(Notice aggregate) {
+    public SettlementCompleteSent(Notice aggregate) {
         super(aggregate);
     }
 
-    public SettlementProcessingSent() {
+    public SettlementCompleteSent() {
         super();
     }
     // keep

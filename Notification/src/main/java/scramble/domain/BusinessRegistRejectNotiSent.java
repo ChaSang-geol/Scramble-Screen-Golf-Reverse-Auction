@@ -5,7 +5,7 @@ import lombok.Data;
 import scramble.infra.AbstractEvent;
 
 @Data
-public class SettlementProcessingSent extends AbstractEvent {
+public class BusinessRegistRejectNotiSent extends AbstractEvent {
 
     private Long notiId;
     private String receiverPhoneNum;
@@ -18,11 +18,11 @@ public class SettlementProcessingSent extends AbstractEvent {
     private Long settleid;
     private Long paymentId;
 
-    public SettlementProcessingSent(Notice aggregate) {
+    public BusinessRegistRejectNotiSent(Notice aggregate) {
         super(aggregate);
     }
 
-    public SettlementProcessingSent() {
+    public BusinessRegistRejectNotiSent() {
         super();
     }
     // keep

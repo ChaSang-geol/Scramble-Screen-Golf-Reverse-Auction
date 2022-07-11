@@ -26,9 +26,9 @@ public class Member {
     private String memberName; // 이름
     private String phoneNumber; // 휴대전화번호
     private String status="Y"; // 상태 : Y 가입, N 탈퇴
-    @Embedded
-    //@Builder.Default
-    Role role = Role.MEMBER; // 회원의 구분 & 권한
+    //@Embedded
+    String role = Role.MEMBER.toString(); // 회원의 구분 & 권한
+
 /*
     public String getRole() {
         return role.toString();
@@ -41,13 +41,6 @@ public class Member {
          */
         MemberJoined memberJoined = new MemberJoined(this);
         BeanUtils.copyProperties(this, memberJoined);
-
-        // memberJoined.setMemberId(this.getMemberId());
-        // memberJoined.setMemberName(this.getMemberName());
-        // memberJoined.setPhoneNumber(this.getPhoneNumber());
-        // memberJoined.setStatus(this.getStatus());
-        // memberJoined.setRole(this.getRole().toString());
-
         memberJoined.publishAfterCommit();
 
 
@@ -71,13 +64,6 @@ public class Member {
          */
         MemberUpdated memberUpdated = new MemberUpdated(this);
         BeanUtils.copyProperties(this, memberUpdated);
-
-        // memberUpdated.setMemberId(this.getMemberId());
-        // memberUpdated.setMemberName(this.getMemberName());
-        // memberUpdated.setPhoneNumber(this.getPhoneNumber());
-        // memberUpdated.setStatus(this.getStatus());
-        // memberUpdated.setRole(this.getRole().toString());
-
         memberUpdated.publishAfterCommit();
 
         /*
@@ -86,35 +72,39 @@ public class Member {
         if ("N".equals(this.getStatus())) {
             MemberWithdrawed memberWithdrawed = new MemberWithdrawed(this);
             BeanUtils.copyProperties(this, memberWithdrawed);
-
-            // memberWithdrawed.setMemberId(this.getMemberId());
-            // memberWithdrawed.setMemberName(this.getMemberName());
-            // memberWithdrawed.setPhoneNumber(this.getPhoneNumber());
-            // memberWithdrawed.setStatus(this.getStatus());
-
             memberWithdrawed.publishAfterCommit();
         }
     }
 
-    // private final PasswordEncoder passwordEncoder;
 
-    // @PrePersist
-    // public void onPrePersist() {
+    @PrePersist
+    public void onPrePersist() {
     //     //비밀번호 암호화 저장
     //     this.setPassword(passwordEncoder.encode(getPassword()));
+        if (getRole()==null) {
 
-    // }
+            this.setRole(role);
+        } else {
+            this.setRole(this.getRole());
+        }
+    }
 
-    // @PreUpdate
-    // public void onPreUpdate() {
-    //     //비밀번호 암호화 저장
-    //     if (getPassword().isEmpty()) {
-    //         this.setPassword(this.getPassword());
-    //     } else {
-    //         this.setPassword(passwordEncoder.encode(getPassword()));
-    //     }
+    @PreUpdate
+    public void onPreUpdate() {
+        //RequestUpdateMember updatemember = new RequestUpdateMember(this);
+        // //비밀번호 암호화 저장
+        // if (getPassword().isEmpty()) {
+        //     this.setPassword(this.getPassword());
+        // } else {
+        //     this.setPassword(passwordEncoder.encode(getPassword()));
+        // }
+        if (getRole()==null) {
 
-    // }
+            this.setRole(role);
+        } else {
+            this.setRole(this.getRole());
+        }
+    }
     public static MemberRepository repository() {
         MemberRepository memberRepository = MemberApplication.applicationContext.getBean(
             MemberRepository.class

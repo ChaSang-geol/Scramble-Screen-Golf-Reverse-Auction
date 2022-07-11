@@ -23,7 +23,7 @@ public class MemberService implements MemberFindService{
       final Member member = new Member();
       //final var encodedPassword = Password of(request.getPassword(), passwordEncoder);
       member.setPassword(passwordEncoder.encode(request.getPassword()));
-      member.setRole(Role.MEMBER);
+      member.setRole(Role.MEMBER.toString());
       member.setStatus("Y");
       member.setMemberId(request.getMemberId());
       member.setMemberName(request.getMemberName());
