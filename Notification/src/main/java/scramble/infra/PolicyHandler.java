@@ -47,7 +47,7 @@ public class PolicyHandler {
     }
 
     @StreamListener(KafkaProcessor.INPUT)
-    public void RequestNotiRegBusinessComplete(@Payload RequestApproved eventString) {
+    public void requestNotiRegBusinessComplete(@Payload RequestApproved eventString) {
         if (!eventString.validate()) return;
         SendMessage event = new SendMessage();
         BeanUtils.copyProperties(eventString, event);
