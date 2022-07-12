@@ -19,7 +19,7 @@
                         >
                             <div style="line-height:100%;">≡</div>
                         </v-app-bar-nav-icon>
-                        scramble
+                        scrumble
                     </span>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>

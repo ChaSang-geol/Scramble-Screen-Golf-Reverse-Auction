@@ -26,10 +26,10 @@ spring:
       bindings:
         event-in:
           group: Member
-          destination: scramble
+          destination: scrumble
           contentType: application/json
         event-out:
-          destination: scramble
+          destination: scrumble
           contentType: application/json
 
 logging:
@@ -68,10 +68,10 @@ spring:
       bindings:
         event-in:
           group: Member
-          destination: scramble
+          destination: scrumble
           contentType: application/json
         event-out:
-          destination: scramble
+          destination: scrumble
           contentType: application/json
 
 

@@ -1,4 +1,4 @@
-# Scramble-Screen-Golf-Reverse-Auction
+# scrumble-Screen-Golf-Reverse-Auction
  . 스크린 골프 예약 역경매 시스템
 
 
@@ -23,7 +23,7 @@
 
 - [Kafka Event 컨슈밍하기 (별도 터미널)]
 ```cd kafka_2.13-3.1.0/
-./bin/windows/kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --topic scramble
+./bin/windows/kafka-console-consumer.bat --bootstrap-server 127.0.0.1:9092 --topic scrumble
 
 
 - [Kafa stop]

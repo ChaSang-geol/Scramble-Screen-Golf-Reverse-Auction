@@ -1,8 +1,8 @@
-package scramble.common;
+package scrumble.common;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import scramble.MemberApplication;
+import member.MemberApplication;
 
 @CucumberContextConfiguration
 @SpringBootTest(classes = { MemberApplication.class })

@@ -1,8 +1,8 @@
-package scramble.common;
+package reservation.common;
 
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import scramble.ReservationApplication;
+import reservation.ReservationApplication;
 
 @CucumberContextConfiguration
 @SpringBootTest(classes = { ReservationApplication.class })
